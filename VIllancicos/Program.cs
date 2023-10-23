@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<villancicosContext>(
     optionsBuilder=>
     optionsBuilder.UseMySql("server=localhost; user id=root; password=root; database=villancicos", 
-    ServerVersion.AutoDetect("\"server=localhost; user id=root; password=root; database=villancicos\""))
+    ServerVersion.AutoDetect("server=localhost; user id=root; password=root; database=villancicos"))
     );
 
 

@@ -1,28 +1,10 @@
-﻿@{
+﻿@model IEnumerable<string>
+@{
     Layout = "_Layout";
 }
 <ul>
-    <li><a href="~/Home/Villancico">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
-    <li><a href="#">Mi Burrito Sabanero</a></li>
+    @foreach(var v in Model)
+    {
+        <li><a href="~/Home/Villancico/>@(v.Replace(" ","-"))">@v</a></li>
+    }
 </ul>

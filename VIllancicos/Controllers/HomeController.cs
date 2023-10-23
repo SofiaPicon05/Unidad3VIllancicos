@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using VIllancicos.Models.ViewModels;
 using VIllancicos.Repositories;
 
 namespace VIllancicos.Controllers
@@ -12,15 +13,30 @@ namespace VIllancicos.Controllers
         {
             this.repository = repository;
         }
-
+        //
         public IActionResult Index()
         {
-            return View();
+            var data=repository.Get().Select(x => x.Nombre);
+            return View(data);
         }
-
-        public IActionResult Villancico()
+        public IActionResult Villancico(string? Id)
         {
-            return View();
+            Id = Id?.Replace("-", " ");
+
+            var data = repository.Get(Id??"");
+           if(data != null)
+            {
+                VillancicoViewModel vm = new()
+                {
+                    Año = data.Anyo ?? 0,
+                    Compositor = data.Compositor,
+                    Letra = data.Letra,
+                    Nombre = data.Nombre,
+                    URL = data.VideoUrl
+                };
+                return View(vm);
+            }
+            return RedirectToAction("Index");    
         }
     }
 }

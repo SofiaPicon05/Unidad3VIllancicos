@@ -1,4 +1,5 @@
-﻿@{
+﻿@model VIllancicos.Models.ViewModels.VillancicoViewModel
+@{
     Layout = "_Layout";
 }
 
@@ -6,55 +7,11 @@
 <nav>
     <a href="javascript:window.history.back();">Regresar</a>
 </nav>
-<h2>Mi Burrito Sabanero</h2>
-<h3>Hugo Blanco, 1972</h3>
+<h2>@Model.Nombre</h2>
+<h3>@Model.Compositor</h3>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lJawRaON8h0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="@Model.URL" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <article>
-    <p>
-        Con mi burrito sabanero voy camino de Belén<br>
-        Si me ven, si me ven, voy camino de Belén<br>
-        El lucerito mañanero ilumina mi sendero<br>
-        Si me ven, si me ven, voy camino de Belén<br>
-        Con mi cuatrico voy cantando, mi burrito va trotando<br>
-        Si me ven, si me ven, voy camino de Belén
-    </p>
-    <p>
-        Tuqui tuqui tuqui tuqui, tuqui tuqui tu quita<br>
-        Apúrate mi burrito que ya vamos a llegar<br>
-        Tuqui tuqui tuqui tuqui, tuqui tuqui tu quita<br>
-        Apúrate mi burrito, vamos a ver Jesús
-    </p>
-    <p>
-        Con mi burrito sabanero voy camino de Belén<br>
-        Si me ven, si me ven, voy camino de Belén<br>
-        El lucerito mañanero ilumina mi sendero<br>
-        Si me ven, si me ven, voy camino de Belén<br>
-        Con mi cuatrico voy cantando, mi burrito va trotando<br>
-        Si me ven, si me ven, voy camino de Belén
-    </p>
-
-    <p>
-        Tuqui tuqui tuqui tuqui, tuqui tuqui tuquita<br>
-        Apurate mi burrito que ya vamos a llegar<br>
-        Tuqui tuqui tuqui tuqui, tuqui tuqui tuquitu<br>
-        Apurate mi burrito, vamos a ver Jesús
-    </p>
-    <p>
-        Con mi burrito sabanero voy camino de Belén<br>
-        Si me ven, si me ven, voy camino de Belén<br>
-        Si me ven, si me ven, voy camino de Belén
-    </p>
-    <p>
-        Tuqui tuqui tuqui tuqui, tuqui tuqui tuquita<br>
-        Apurate mi burrito que ya vamos a llegar<br>
-        Tuqui tuqui tuqui tuqui, tuqui tuqui tuquitu<br>
-        Apurate mi burrito, vamos a ver Jesús
-    </p>
-    <p>
-        Con mi burrito sabanero voy camino de Belén<br>
-        Si me ven, si me ven, voy camino de Belén<br>
-        Si me ven, si me ven, voy camino de Belén
-    </p>
+   @Html.Raw(Model.Letra)
 </article>

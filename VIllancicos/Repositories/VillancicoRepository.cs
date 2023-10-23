@@ -14,7 +14,7 @@ namespace VIllancicos.Repositories
             context = cx;
         }
 
-        public void Insert(Villancico villancico)
+        public void Insert(Villancico villancico) //agrega
         {
             context.Add(villancico);
             context.SaveChanges();
@@ -23,16 +23,20 @@ namespace VIllancicos.Repositories
         {
             return context.Villancico.OrderBy(x => x.Nombre);
         }
-        public Villancico? Get(int id)
+        public Villancico? Get(int id) // se buscan por Id
         {
             return context.Villancico.Find(id);
         }
-        public void Update(Villancico villancico)
+        public Villancico? Get(string nombre) // va a buscarlos por nombre
+        {
+            return context.Villancico.FirstOrDefault(x=>x.Nombre==nombre);
+        }
+        public void Update(Villancico villancico) // actualiza
         {
             context.Update(villancico);
             context.SaveChanges();
         }
-        public void Delete(Villancico villancico)
+        public void Delete(Villancico villancico) //elimina
         {
             context.Remove(villancico);
             context.SaveChanges();
