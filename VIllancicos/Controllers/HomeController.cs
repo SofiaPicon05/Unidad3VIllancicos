@@ -25,7 +25,7 @@ namespace VIllancicos.Controllers
 
             var data = repository.Get(Id??"");
            if(data != null)
-            {
+           {
                 VillancicoViewModel vm = new()
                 {
                     Año = data.Anyo ?? 0,
@@ -35,7 +35,7 @@ namespace VIllancicos.Controllers
                     URL = data.VideoUrl
                 };
                 return View(vm);
-            }
+           }
             return RedirectToAction("Index");    
         }
     }
