@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "AdminLayout";
+}
+<section>
+
+<form method="post" action="~/Admin/Villancicos/Agregar">   
+	<div class="caption">
+		<h2>Agregar villancico</h2>
+	</div>
+	<label>Nombre:</label>
+	<input type="text" name="Nombre" />
+	<label>Compositor:</label>
+	<input type="text" name="Compositor" />
+	<label>Año:</label>
+	<input type="number" maxlength="4" name="Anyo" />
+	<label>Letra:</label>
+	<textarea rows="10" name="Letra"></textarea>
+	<label>Video (URL):</label>
+	<input type="url" name="VideoURL" />
+
+	<div class="botones">
+		<input type="submit" value="Agregar" />
+		<a href="~/Admin">Cancelar</a>
+	</div>
+
+</form>
+
+</section>
