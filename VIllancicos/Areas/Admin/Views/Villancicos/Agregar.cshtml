@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Villancicos.Models.Villancico
+@{
     Layout = "AdminLayout";
 }
 <section>
@@ -8,15 +9,17 @@
 		<h2>Agregar villancico</h2>
 	</div>
 	<label>Nombre:</label>
-	<input type="text" name="Nombre" />
+	<input type="text" name="Nombre" value="@Model.Nombre" />
 	<label>Compositor:</label>
-	<input type="text" name="Compositor" />
+	<input type="text" name="Compositor" value="@Model.Compositor" />
 	<label>Año:</label>
-	<input type="number" maxlength="4" name="Anyo" />
+	<input type="number" maxlength="4" name="Anyo" value="@Model.Anyo" />
 	<label>Letra:</label>
-	<textarea rows="10" name="Letra"></textarea>
+		<textarea rows="10" name="Letra">@Model.Letra</textarea>
 	<label>Video (URL):</label>
-	<input type="url" name="VideoURL" />
+		<input type="url" name="VideoURL" value="@Model.VideoUrl" />
+
+	@Html.ValidationSummary(true)
 
 	<div class="botones">
 		<input type="submit" value="Agregar" />

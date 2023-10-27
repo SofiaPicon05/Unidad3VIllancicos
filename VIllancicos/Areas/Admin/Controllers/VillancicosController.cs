@@ -15,12 +15,10 @@ namespace VIllancicos.Areas.Admin.Controllers
 			Repository = repos;
 		}
 
-
-
 		[HttpGet]
 		public IActionResult Agregar()
 		{
-			return View();
+			return View(new Villancico());
 		}
 		[HttpPost]
 		public IActionResult Agregar(Villancico v)
@@ -47,7 +45,51 @@ namespace VIllancicos.Areas.Admin.Controllers
 				return RedirectToAction("Index", "Home", new { area = "Admin" });
 			}
 			else
-			return View(v);
+			{
+				return View(v);
+			}
+		}
+		public IActionResult Editar(int id)
+		{
+
+			var villancico = Repository.Get(id);
+			if(villancico == null)
+			{
+				return RedirectToAction("Index", "Home", new { area = "Admin" });
+			}
+			
+			return View(villancico);
+
+		}
+
+		[HttpPost]
+		public IActionResult Editar(Villancico v)
+		{
+			if (string.IsNullOrWhiteSpace(v.Nombre))
+			{
+				ModelState.AddModelError("", "Escriba el nombre del villancico");
+			}
+			if (string.IsNullOrWhiteSpace(v.Nombre))
+			{
+				ModelState.AddModelError("", "Escriba el nombre del compositor de villancico");
+			}
+			if (string.IsNullOrWhiteSpace(v.Nombre))
+			{
+				ModelState.AddModelError("", "Escriba la letra del villancico");
+			}
+			if (string.IsNullOrWhiteSpace(v.Nombre))
+			{
+				ModelState.AddModelError("", "Escriba la direccion del villancico en Youtube");
+			}
+			if (ModelState.IsValid)
+			{
+				Repository.Update(v);
+				return RedirectToAction("Index", "Home", new { area = "Admin" });
+			}
+			else
+			{
+				return View(v);
+			}
 		}
 	}
 }

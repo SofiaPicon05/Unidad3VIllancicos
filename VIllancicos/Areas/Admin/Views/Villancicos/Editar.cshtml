@@ -1,0 +1,35 @@
+﻿@model Villancicos.Models.Villancico
+@{
+	Layout = "AdminLayout";
+}
+
+<section>
+
+	<form method="post" action="~/Admin/Villancicos/Editar">
+		<div class="caption">
+			<h2>Editar villancico</h2>
+		</div>
+
+		<input type="hidden" name="Id" value="@Model.Id"/>
+
+		<label>Nombre:</label>
+		<input type="text" name="Nombre" value="@Model.Nombre" />
+		<label>Compositor:</label>
+		<input type="text" name="Compositor" value="@Model.Compositor" />
+		<label>Año:</label>
+		<input type="number" maxlength="4" name="Anyo" value="@Model.Anyo" />
+		<label>Letra:</label>
+		<textarea rows="10" name="Letra">@Model.Letra</textarea>
+		<label>Video (URL):</label>
+		<input type="url" name="VideoURL" value="@Model.VideoUrl" />
+
+		@Html.ValidationSummary(true)
+
+		<div class="botones">
+			<input type="submit" value="Gurdarr" />
+			<a href="~/Admin">Cancelar</a>
+		</div>
+
+	</form>
+
+</section>
