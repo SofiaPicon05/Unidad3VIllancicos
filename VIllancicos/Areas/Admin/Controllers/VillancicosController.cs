@@ -90,6 +90,29 @@ namespace VIllancicos.Areas.Admin.Controllers
 			{
 				return View(v);
 			}
+
 		}
+		public IActionResult Eliminar(int id)
+		{
+			var villancico = Repository.Get(id);
+			if (villancico == null)
+			{
+				return RedirectToAction("Index", "Home", new { area = "Admin" });
+			}
+
+			return View(villancico);
+
+		}
+		[HttpPost]
+		public IActionResult Eliminar(Villancico v)
+		{
+			var villancico = Repository.Get(v.Id);
+			if (villancico != null)
+			{
+				Repository.Delete(villancico);	
+			}
+			return RedirectToAction("Index", "Home", new { area = "Admin" });
+		}
+		//WYSIWYG: WHAT YOU SEE IS WHAT YOU GET 
 	}
 }
