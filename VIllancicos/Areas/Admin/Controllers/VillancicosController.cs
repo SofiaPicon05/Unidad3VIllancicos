@@ -113,6 +113,13 @@ namespace VIllancicos.Areas.Admin.Controllers
 			}
 			return RedirectToAction("Index", "Home", new { area = "Admin" });
 		}
-		//WYSIWYG: WHAT YOU SEE IS WHAT YOU GET 
+		//WYSIWYG: WHAT YOU SEE IS WHAT YOU GET  
+
+
+
+
+
+
+
 	}
 }
